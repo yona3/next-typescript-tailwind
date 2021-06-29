@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
-  env: { browser: true, node: true, es6: true },
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "import", "simple-import-sort", "tailwindcss"],
+  parserOptions: {
+    sourceType: "module",
+    project: "./tsconfig.json",
+  },
+  env: { browser: true, node: true, es2020: true },
+  plugins: ["simple-import-sort", "tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -13,12 +17,8 @@ module.exports = {
     "plugin:tailwindcss/recommended",
     "prettier",
   ],
-  parserOptions: {
-    sourceType: module,
-    project: "./tsconfig.json",
-  },
   rules: {
-    "no-console": [warn, { allow: [warn, info, error] }],
+    "no-console": ["warn", { allow: ["warn", "info", "error"] }],
     "no-restricted-syntax": [
       "error",
       { selector: "TSEnumDeclaration", message: "Don't declare enums" },
@@ -26,7 +26,10 @@ module.exports = {
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "func-style": ["error", "expression"],
-    "no-restricted-imports": ["error", { paths: [{ name: "react", importNames: ["default"] }] }],
+    "no-restricted-imports": [
+      "error",
+      { paths: [{ name: "react", importNames: ["default"] }] },
+    ],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/display-name": "error",
@@ -41,7 +44,6 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "import/newline-after-import": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "tailwindcss/classnames-order": "warn",
@@ -50,12 +52,18 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/consistent-type-imports": ["warn", { prefer: "type-imports" }],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      { prefer: "type-imports" },
+    ],
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/naming-convention": [
       "error",
       { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
-      { selector: ["property", "parameterProperty", "method"], format: ["camelCase"] },
+      {
+        selector: ["property", "parameterProperty", "method"],
+        format: ["camelCase"],
+      },
       {
         selector: "variable",
         types: ["boolean"],
@@ -71,6 +79,12 @@ module.exports = {
         aspects: ["invalidHref", "preferButton"],
       },
     ],
-    "jsx-a11y/click-events-have-key-events": false,
+    "jsx-a11y/click-events-have-key-events": "off",
   },
+  overrides: [
+    {
+      files: ["src/pages/**/*.tsx"],
+      rules: { "import/no-default-export": "off" },
+    },
+  ],
 };
