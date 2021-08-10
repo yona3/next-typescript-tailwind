@@ -56,6 +56,7 @@ module.exports = {
       "warn",
       { prefer: "type-imports" },
     ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/naming-convention": [
       "error",
