@@ -15,7 +15,7 @@ const Index: NextPage = () => {
       </Head>
 
       <div className="text-center">
-        <p className="mt-12 text-xl text-blue-500">
+        <p className="mt-12 text-xl text-blue-600">
           Next.js + TypeScript + Tailwind CSS{" "}
           <span role="img" aria-label="rocket">
             🚀
