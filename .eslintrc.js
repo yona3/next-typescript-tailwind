@@ -6,7 +6,12 @@ module.exports = {
     project: "./tsconfig.json",
   },
   env: { browser: true, node: true, es2020: true },
-  plugins: ["simple-import-sort", "unused-imports", "tailwindcss"],
+  plugins: [
+    "simple-import-sort",
+    "unused-imports",
+    "import-access",
+    "tailwindcss",
+  ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -44,8 +49,10 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    // simple-import-sort
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    // unused-imports
     "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
@@ -57,6 +64,9 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    // import-access
+    "import-access/jsdoc": ["error"],
+    // tailwindcss
     "tailwindcss/classnames-order": "warn",
     "tailwindcss/no-custom-classname": "warn",
     "tailwindcss/no-contradicting-classname": "error",

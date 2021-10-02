@@ -1,9 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
+import { sayHello } from "src/modules";
 
 import { Layout } from "../components/Layout";
 
 const Index: NextPage = () => {
+  useEffect(() => {
+    sayHello("yona3");
+  }, []);
+
   return (
     <Layout>
       <Head>
