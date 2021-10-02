@@ -4,6 +4,8 @@ This is my Next.js + TypeScript + Tailwind CSS starter template.
 
 - Next.js
 - TypeScript
+- Tailwind CSS
 - ESLint
 - Prettier
-- Tailwind CSS
+- husky
+
